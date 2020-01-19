@@ -37,17 +37,16 @@
 
 p.header {
     color: #444;
-    margin-top: 5px;
-    margin-bottom: 8px;
     padding-left: 23px;
     background-color: white;
 }
 
-.footer {
+.foot {
+    padding-top: 10px;
     font-weight: 500;
     padding-left: 23px;
-    /* width: 70%; */
+    width: 70%;
 }
-.footer p{
+.foot p{
     margin-bottom: 10px;
 }

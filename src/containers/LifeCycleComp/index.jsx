@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './index.css'
 
 class LifeCycleComp extends Component{
+    _isMounted = false;
+
     constructor(props){
         super(props);
         this.state = {
@@ -18,12 +20,15 @@ class LifeCycleComp extends Component{
 
     // Function berjalan setelah component dirender atau dimunculkan
     componentDidMount(){
+        this._isMounted = true; 
         console.log('componentDidMount');
-        setTimeout(() => {
-            this.setState({
-                count: 2
-            })
-        }, 3000);
+        if (this._isMounted){
+            setTimeout(() => {
+                this.setState({
+                    count: 2
+                })
+            }, 3000);
+        }
     }
 
     // confirmasi update component, untuk lanjut ke tahap berikutnya
@@ -54,8 +59,11 @@ class LifeCycleComp extends Component{
     componentWillUnmount() {
         console.log('componentWillUnmount, LifeCycleComponent Unmount');
         this.setState({
-            count: 1
-        })
+                count: this.state.count + 1
+            })
+        if(this._isMounted){
+            this._isMounted = false;
+        }
     }
 
     plusCount = () =>{

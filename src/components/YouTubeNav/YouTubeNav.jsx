@@ -17,7 +17,7 @@ const YouTubeNav = () => {
             </div>
             <div className="nav-2">
                 <input type="text" placeholder="Search for..."/>
-                <input type="Submit" value="Search"/>
+                <input type="Submit" value="Search" readOnly/>
             </div>
             <div className="nav-3">
                 <div className="right-icon"></div>

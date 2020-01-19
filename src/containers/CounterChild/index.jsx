@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './../Counter/index.css'
+// import './../Counter/index.css'
 
 class CounterChild extends Component{
     state = {

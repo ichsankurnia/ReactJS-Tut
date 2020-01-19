@@ -9,12 +9,12 @@ const Post = (props) => {
             <div className="img-thumb">
                 <img src={props.getData.img} alt="img-thumb" />
             </div>
-            <div className="content">
-                <div className="content-body">
+            <div className="contents">
+                <div className="contents-body">
                     <p className="title">{props.getData.title}</p>
                     <p className="desc">{props.getData.body}</p>
                 </div>
-                <div className="content-btn">
+                <div className="contents-btn">
                     <button className="btn-edit" onClick={() => props.update(props.getData)}>Edit</button>
                     <button className="btn-delete" onClick={() => props.remove(props.getData.id)}>Delete</button>
                 </div>

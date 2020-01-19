@@ -37,9 +37,6 @@
     padding-right: 10px;
     height: 200px;
 }
-.body-content p{
-    line-height: 0em;
-}
 
 .footer{
     display: flex;

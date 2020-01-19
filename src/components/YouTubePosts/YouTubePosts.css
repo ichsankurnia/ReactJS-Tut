@@ -26,9 +26,10 @@ p{
 }
 
 .content {
-    display: inline-flex;
-    padding: 1px 20px;
+    display: flex;
+    flex-direction: row;
     justify-content: space-between;
+    padding: 1px 20px;
     font-weight: 500;
     margin-bottom: 5px;
 }

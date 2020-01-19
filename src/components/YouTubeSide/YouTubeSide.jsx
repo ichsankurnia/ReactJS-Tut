@@ -18,7 +18,7 @@ Comp.defaultProps={
 const YouTubeSide = () => {
     return (
         <div className="main-side">
-            <div className="side-1" sty>
+            <div className="side-1">
                 <Comp />
                 <Comp title="Trending" />
                 <Comp title="Subscription"/>
@@ -54,10 +54,10 @@ const YouTubeSide = () => {
                 <Comp title="Send Feedback" />
             </div>
             <div className="break-line"></div>
-            <div className="footer">
+            <div className="foot">
                 <p>About Press Copyright Contact Us Creators Advertise Developer</p>
                 <p>Privacy & Policy</p>
-                <p>Test New Feature</p>
+                <p style={{marginTop:-10, marginBottom:25}}>Test New Feature</p>
                 <p style={{fontWeight:'400'}}>&copy; 2019 Google, LLC</p>
             </div>
         </div>

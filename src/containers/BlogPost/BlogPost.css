@@ -1,0 +1,187 @@
+.section-title{
+    position: fixed;
+    top: 50px;
+    margin-left: 20px;
+}
+
+.btn-add{
+    position: fixed;
+    top: 8px;
+    right: 10px;
+    border: 1px solid dodgerblue;
+    border-radius: 4px;
+    padding: 10px 20px;
+    color: dodgerblue;
+    font-size: 15px;
+}
+.btn-add:hover{
+    background-color: dodgerblue;
+    cursor: pointer;
+    color: white;
+    border: 1px solid blue;
+}
+
+.post{
+    display: inline-flex;
+    position: relative;
+    width: 480px;
+    padding: 10px;
+    margin-left: 25px;
+    box-shadow: 2px 2px 2px 3px #aaa;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    margin-right: 30px;
+    margin-top: 15px;
+}
+
+.id{
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    background-color: #333;
+    border-radius: 15px;
+    width: 25px;
+    height: 25px;
+}
+.id p{
+    color: white;
+    text-align: center;
+    margin: 0;
+}
+
+.img-thumb {
+    min-width: 180px;
+    min-height: 125px;
+    margin-right: 15px;
+}
+.img-thumb img{
+    width: 180px;
+    height: 125px;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+}
+
+.content-body {
+    display: flex;
+    flex-direction: column;
+    background-color: silver;
+    border-radius: 3px;
+    padding: 0 5px;
+}
+.title {
+    width: 95%;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 0;
+    color: #333;
+}
+.desc {
+    font-size: 15px;
+    margin-top: -10px;
+    color: #444;
+}
+
+.content-btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 8px;
+}
+.content-btn button{
+    width: 120px;
+    padding: 10px 15px;
+    border-radius: 4px;
+}
+.content-btn .btn-edit{
+    color: #88c34a;
+    border: 1px solid #88c34a;
+}
+.content-btn .btn-edit:hover {
+    color: white;
+    background-color: #88c34a;
+    border: 1px solid rgb(55, 255, 0);
+    cursor: pointer;
+}
+.content-btn .btn-delete {
+    color: red;
+    border: 1px solid red;
+}
+.content-btn .btn-delete:hover {
+    color: white;
+    background-color: #f55;
+    border: 1px solid red;
+    cursor: pointer;
+}
+
+
+.form{
+    position: fixed;
+	z-index: 1;
+	padding-top: 160px; /* Location of the box */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    margin: auto;
+}
+.close-form{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    font-weight: bold;
+    font-size: 25px;
+    border-radius: 25px;
+}
+.close-form:hover{
+    cursor: pointer;
+    background-color: brown;
+    color: white;
+}
+
+.form-add-section{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(73, 73, 73);
+    border-radius: 4px;
+    width: 500px;
+    padding: 10px;
+    box-shadow: 0px 0px 16px rgb(51, 51, 51);
+    background-color: #fefefe;
+    margin: auto;
+}
+.form-add-section label{
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #666;
+}
+.form-add-section input, .form-add-section textarea{
+    outline: none;
+    margin-bottom: 20px;
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: 1px solid dodgerblue;
+}
+.form-add-section button{
+    border: 1px solid dodgerblue;
+    border-radius: 4px;
+    width: 100px;
+    padding: 10px 20px;
+    color: dodgerblue;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+.form-add-section button:hover{
+    background-color: dodgerblue;
+    cursor: pointer;
+    color: white;
+    border: 1px solid blue;
+}

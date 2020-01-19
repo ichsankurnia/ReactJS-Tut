@@ -1,0 +1,32 @@
+import React, {Component} from 'react';
+
+class Test extends Component{
+    state = {
+        count : 0
+    }
+
+    componentDidMount() {
+        // setInterval(() => {
+        //     this.timer()
+        // }, 1000);
+        this.interval = setInterval(() => this.timer(), 1000);
+    }
+
+    timer = () => {
+        this.setState({
+            count: this.state.count + 1
+        })
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.interval);
+    }
+
+    render(){
+        return(
+            <button style={{marginLeft:25, borderRadius:15, width:50, height:50, fontSize:20, fontWeight:"bold"}}>{this.state.count}</button>
+        )
+    }
+}
+
+export default Test;

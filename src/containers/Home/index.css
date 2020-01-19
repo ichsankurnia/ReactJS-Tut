@@ -1,0 +1,15 @@
+.navigation{
+    background-color: #555;
+    padding: 15px;
+}
+
+.navigation a{
+    background-color: lightgrey;
+    padding: 8px 15px;
+    color: #333;
+    border-radius: 4px;
+    margin:10px;
+    text-decoration: none;
+    border: 1px solid #333;
+    font-weight: 500;
+}

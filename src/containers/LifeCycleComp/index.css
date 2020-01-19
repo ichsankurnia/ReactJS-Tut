@@ -1,0 +1,11 @@
+.btn{
+    background-color: lightseagreen;
+    color: lightyellow;
+    padding: 7px 10px;
+    width: 150px;
+    margin-left: 25px;
+}
+.btn:hover{
+    cursor: pointer;
+    background-color: mediumaquamarine;
+}

@@ -1,0 +1,73 @@
+.head{
+    width: 1258px;
+    display: inline-flex;
+    align-items: center;
+    height: 250px;
+    padding-bottom: 10px;
+    /* background-color: gray; */
+    /* float: right; */
+    /* margin-top: 10px; */
+    /* padding: 10px 20px 0px 20px; */
+}
+
+.left-head{
+    width: 423px;
+    height: 238px;
+    margin-right: 15px;
+}
+.left-head img{
+    width: 100%;
+    height: 100%;
+}
+
+.right-head {
+    width: 770px;
+    height: 239px;
+    float: right;
+    /* background-color: hotpink; */
+}
+.right-head .banner{
+    width: 100%;
+    height: 126px;
+}
+
+.bot-banner{
+    display: inline-flex;
+    /* align-items: center; */
+    padding-top: 5px;
+    padding-left: 10px;
+}
+.bot-banner .logo{
+    border-radius: 80px;
+    background-color: lightskyblue;
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+}
+.mid {
+    display: inline-flex;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-weight: 400;
+}
+.mid .btn-ads{
+    background-color: yellow;
+    margin-right: 5px;
+    text-align: center;
+    padding:  5px;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 2px;
+}
+p {
+    margin: 0em;
+}
+.btn-promos{
+    background-color: mediumaquamarine;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 7px 15px;
+    width: 70%;
+    border-radius: 3px;
+}

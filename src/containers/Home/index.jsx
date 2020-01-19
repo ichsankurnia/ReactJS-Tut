@@ -5,6 +5,7 @@ import Counter from "./../Counter";
 import LifeCycleComp from '../LifeCycleComp';
 import BlogPost from '../BlogPost';
 import Test from '../Test';
+import YouTube from "../YouTube";
 import "./index.css";
 
 class Home extends Component{
@@ -37,18 +38,20 @@ class Home extends Component{
                     {/* <hr style={{backgroundColor:'black', height:'2px'}} /> */}
                     {/* <BlogPost /> */}
                     {/* <Test /> */}
-
                     <div className="navigation">
                         <Link to="/" >Blog Post</Link>
                         <Link to="/counter" >Counter</Link>
                         <Link to="/lifecycle" >LifeCycle</Link>
                         <Link to="/test" >Test</Link>
+                        <Link to="/youtube" >YouTube</Link>
                     </div>
                     <hr style={{backgroundColor:'black', height:'2px'}} />
+
                     <Route path="/" exact component={BlogPost} />
                     <Route path="/counter" component={Counter} />
                     <Route path="/lifecycle" component={LifeCycleComp} />
                     <Route path="/test" component={Test} />
+                    <Route path="/youtube" component={YouTube} />
                 </Fragment>
             </BrowserRouter>
         )

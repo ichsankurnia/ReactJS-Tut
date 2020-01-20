@@ -1,10 +1,10 @@
 import React from 'react';
 
-import YouTubeComp from "./../../components/YouTubeComp/YouTubeComp";
-import YouTubeNav from '../../components/YouTubeNav/YouTubeNav';
-import YouTubeSide from '../../components/YouTubeSide/YouTubeSide';
-import YouTubeHead from '../../components/YouTubeHead/YouTubeHead';
-import YouTubePosts from '../../components/YouTubePosts/YouTubePosts';
+import YouTubeComp from "./../../../components/YouTubeComp/YouTubeComp";
+import YouTubeNav from "./../../../components/YouTubeNav/YouTubeNav";
+import YouTubeSide from "./../../../components/YouTubeSide/YouTubeSide";
+import YouTubeHead from "./../../../components/YouTubeHead/YouTubeHead";
+import YouTubePosts from "./../../../components/YouTubePosts/YouTubePosts";
 
 class YouTube extends React.Component {
     breakLine = {

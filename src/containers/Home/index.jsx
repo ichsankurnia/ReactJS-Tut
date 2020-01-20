@@ -1,11 +1,12 @@
 import React, { Component, Fragment } from 'react';
 import {BrowserRouter, Route, Link} from "react-router-dom";
 
-import Counter from "./../Counter";
-import LifeCycleComp from '../LifeCycleComp';
-import BlogPost from '../BlogPost';
-import Test from '../Test';
-import YouTube from "../YouTube";
+import BlogPost from '../Pages/BlogPost';
+import Counter from '../Pages/Counter';
+import LifeCycleComp from '../Pages/LifeCycleComp';
+import Test from '../Pages/Test';
+import YouTube from '../Pages/YouTube';
+
 import "./index.css";
 
 class Home extends Component{

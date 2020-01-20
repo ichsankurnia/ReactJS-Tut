@@ -1,7 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import axios from "axios";
+
+import Post from "./../../../components/Post"
+
 import "./BlogPost.css";
-import Post from '../../components/Post';
 
 class BlogPost extends Component{
     state = {
@@ -17,6 +19,7 @@ class BlogPost extends Component{
         showForm: false
     }
 
+    // Test Get request from my domain
     testGetRequest = () => {
         axios.get('http://ories.goes2nobel.com/dbpostgre/json.php')
         .then((res) => {
@@ -34,7 +37,7 @@ class BlogPost extends Component{
         //     })
         // });
         this.getAllData();
-        this.testGetRequest();
+        // this.testGetRequest();      // => http://ories.goes2nobel.com/dbpostgre/json.php
     }
 
     getAllData = () => {

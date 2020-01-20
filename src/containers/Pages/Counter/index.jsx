@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import "./index.css";
-import CounterChild from '../CounterChild/index.jsx';
+import CounterChild from './CounterChild';
 
 class Counter extends Component{
     state = {

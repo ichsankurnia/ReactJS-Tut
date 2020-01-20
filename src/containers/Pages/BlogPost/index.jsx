@@ -52,47 +52,6 @@ class BlogPost extends Component{
     }
 
 
-    handleFormAddChange = (event) => {
-        // console.log(event);      //event.target => input textarea button   || event.timeStamp dll
-        var formAddNew = {...this.state.formAdd};   //copy seluru obj ke formAddNew
-        if(!this.state.isUpdate){
-            formAddNew['id'] = new Date().getTime();
-        }
-        formAddNew[event.target.name] = event.target.value
-        this.setState({
-            formAdd: formAddNew
-        })
-        // }, () => {
-        //     console.log("value obj formAdd: ", this.state.formAdd)
-        // })
-    }
-
-
-    handleSubmit = () => {
-        console.log("Submit data: ", this.state.formAdd);
-        if (this.state.formAdd.title !== "" || this.state.formAdd.body !== "" || this.state.formAdd.img !== "") {
-            if (!this.state.isUpdate) {
-                this.postDatatoAPI(this.state.formAdd);
-            } else {
-                this.putDatatoAPI(this.state.formAdd.id, this.state.formAdd);
-            }
-            this.setState({
-                formAdd: {
-                    id: 1,
-                    userId: 11,
-                    title: '',
-                    body: '',
-                    img: ''
-                },
-                isUpdate: false,
-                showForm: false
-            })
-        } else {
-            alert("Cannot add/update data with empty form");
-        }
-    }
-
-
     postDatatoAPI = (data) => {
         axios.post('http://localhost:3004/posts', data).then((res) => {
             console.log('Add new data', res);
@@ -136,6 +95,7 @@ class BlogPost extends Component{
         }
     }
 
+
     handleCloseForm = () => {
         this.setState({
             formAdd: {
@@ -150,6 +110,47 @@ class BlogPost extends Component{
         })
     }
 
+    handleFormAddChange = (event) => {
+        // console.log(event);      //event.target => input textarea button   || event.timeStamp dll
+        var formAddNew = {
+            ...this.state.formAdd
+        }; //copy seluru obj ke formAddNew
+        if (!this.state.isUpdate) {
+            formAddNew['id'] = new Date().getTime();
+        }
+        formAddNew[event.target.name] = event.target.value
+        this.setState({
+            formAdd: formAddNew
+        })
+        // }, () => {
+        //     console.log("value obj formAdd: ", this.state.formAdd)
+        // })
+    }
+
+
+    handleSubmit = () => {
+        console.log("Submit data: ", this.state.formAdd);
+        if (this.state.formAdd.title !== "" || this.state.formAdd.body !== "" || this.state.formAdd.img !== "") {
+            if (!this.state.isUpdate) {
+                this.postDatatoAPI(this.state.formAdd);
+            } else {
+                this.putDatatoAPI(this.state.formAdd.id, this.state.formAdd);
+            }
+            this.setState({
+                formAdd: {
+                    id: 1,
+                    userId: 11,
+                    title: '',
+                    body: '',
+                    img: ''
+                },
+                isUpdate: false,
+                showForm: false
+            })
+        } else {
+            alert("Cannot add/update data with empty form");
+        }
+    }
 
     formModal = () => {
         return(            
@@ -167,6 +168,11 @@ class BlogPost extends Component{
             </div>
         )
     }
+
+    handleDetailPost = (id) => {
+        console.log(id)
+        this.props.history.push(`/detail-post/${id}`)
+    }
     
     render(){
         // console.log(this.state.post); // {userId: 1, id: 1, title: "sunt aut facere ..
@@ -175,7 +181,7 @@ class BlogPost extends Component{
                 <button className="btn-add" onClick={() => this.setState({showForm:true})}>Add Post</button>
                 {
                     this.state.post.map(post => {
-                        return <Post key={post.id} getData={post} update={this.handleUpdate} remove={this.deleteData} />
+                        return <Post key={post.id} getData={post} update={this.handleUpdate} remove={this.deleteData} goDetailPost={this.handleDetailPost} />
                     })
                 }
                 {
@@ -187,6 +193,8 @@ class BlogPost extends Component{
 }
 
 export default BlogPost;
+
+
 
 //#region get 10 data
 /* 

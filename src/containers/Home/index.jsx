@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import {BrowserRouter, Route, Link} from "react-router-dom";
 
 import BlogPost from '../Pages/BlogPost';
+import DetailPost from '../Pages/BlogPost/DetailPost';
 import Counter from '../Pages/Counter';
 import LifeCycleComp from '../Pages/LifeCycleComp';
 import Test from '../Pages/Test';
@@ -49,6 +50,7 @@ class Home extends Component{
                     <hr style={{backgroundColor:'black', height:'2px'}} />
 
                     <Route path="/" exact component={BlogPost} />
+                    <Route path="/detail-post/:postId" exact component={DetailPost} />
                     <Route path="/counter" component={Counter} />
                     <Route path="/lifecycle" component={LifeCycleComp} />
                     <Route path="/test" component={Test} />

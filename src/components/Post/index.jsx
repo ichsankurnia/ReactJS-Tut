@@ -11,7 +11,7 @@ const Post = (props) => {
             </div>
             <div className="contents">
                 <div className="contents-body">
-                    <p className="title">{props.getData.title}</p>
+                    <p className="title" onClick={() => props.goDetailPost(props.getData.id)}>{props.getData.title}</p>
                     <p className="desc">{props.getData.body}</p>
                 </div>
                 <div className="contents-btn">

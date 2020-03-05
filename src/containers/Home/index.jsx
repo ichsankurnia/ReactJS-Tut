@@ -7,6 +7,10 @@ import Counter from '../Pages/Counter';
 import LifeCycleComp from '../Pages/LifeCycleComp';
 import Test from '../Pages/Test';
 import YouTube from '../Pages/YouTube';
+import HomeToken from "../Pages/Token/HomeToken";
+import Login from "../Pages/Token/Login";
+import Balance from "../Pages/Token/Balance";
+import DetailBalance from "../Pages/Token/DetailBalance";
 
 import "./index.css";
 
@@ -46,6 +50,7 @@ class Home extends Component{
                         <Link to="/lifecycle" >LifeCycle</Link>
                         <Link to="/test" >Test</Link>
                         <Link to="/youtube" >YouTube</Link>
+                        <Link to="/hometoken" >Token</Link>
                     </div>
                     <hr style={{backgroundColor:'black', height:'2px'}} />
 
@@ -55,6 +60,10 @@ class Home extends Component{
                     <Route path="/lifecycle" component={LifeCycleComp} />
                     <Route path="/test" component={Test} />
                     <Route path="/youtube" component={YouTube} />
+                    <Route path="/login" component={Login} />
+                    <Route path="/balance" component={Balance} />
+                    <Route path="/hometoken" component={HomeToken} />
+                    <Route path="/detail-balance/:menu" component={DetailBalance} />
                 </Fragment>
             </BrowserRouter>
         )

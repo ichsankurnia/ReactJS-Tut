@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 class Test extends Component{
     state = {
-        count : 0
+        count : 10
     }
 
     componentDidMount() {
@@ -13,9 +13,11 @@ class Test extends Component{
     }
 
     timer = () => {
-        this.setState({
-            count: this.state.count + 1
-        })
+        if(this.state.count > 0){
+            this.setState({
+                count: this.state.count - 1
+            })
+        }
     }
 
     componentWillUnmount() {

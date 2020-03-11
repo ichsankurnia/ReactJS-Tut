@@ -11,6 +11,7 @@ import HomeToken from "../Pages/Token/HomeToken";
 import Login from "../Pages/Token/Login";
 import Balance from "../Pages/Token/Balance";
 import DetailBalance from "../Pages/Token/DetailBalance";
+import Testttt from '../Pages/Token/test';
 
 import "./index.css";
 
@@ -64,6 +65,7 @@ class Home extends Component{
                     <Route path="/balance" component={Balance} />
                     <Route path="/hometoken" component={HomeToken} />
                     <Route path="/detail-balance/:menu" component={DetailBalance} />
+                    <Route path="/testt" component={Testttt} />
                 </Fragment>
             </BrowserRouter>
         )

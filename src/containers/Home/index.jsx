@@ -11,7 +11,8 @@ import HomeToken from "../Pages/Token/HomeToken";
 import Login from "../Pages/Token/Login";
 import Balance from "../Pages/Token/Balance";
 import DetailBalance from "../Pages/Token/DetailBalance";
-import Testttt from '../Pages/Token/test';
+import Testt from '../Pages/Token/Testt';
+import Params from '../Pages/Token/Params';
 
 import "./index.css";
 
@@ -52,6 +53,7 @@ class Home extends Component{
                         <Link to="/test" >Test</Link>
                         <Link to="/youtube" >YouTube</Link>
                         <Link to="/hometoken" >Token</Link>
+                        <Link to="/testt">Testt</Link>
                     </div>
                     <hr style={{backgroundColor:'black', height:'2px'}} />
 
@@ -65,7 +67,8 @@ class Home extends Component{
                     <Route path="/balance" component={Balance} />
                     <Route path="/hometoken" component={HomeToken} />
                     <Route path="/detail-balance/:menu" component={DetailBalance} />
-                    <Route path="/testt" component={Testttt} />
+                    <Route path="/testt" component={Testt} />
+                    <Route path="/params" component={Params} />
                 </Fragment>
             </BrowserRouter>
         )

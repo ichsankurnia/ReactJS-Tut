@@ -18,6 +18,7 @@ class Testt extends React.Component {
     }
 
     componentDidMount() {
+        console.log(this.state.jsonBody);
         axios.get(`http://ciherang.goes2nobel.com/node/mygrapari/menu/${2}`).then(res => {
             this.setState({
               data: res.data.data
@@ -42,14 +43,14 @@ class Testt extends React.Component {
                 <label>Language: </label>
                 <input type="text" value={this.state.lang} onChange={(evt) => this.setState({lang: evt.target.value})} /><br></br>
                 <label>Slugify: </label>
-                <input type="text" value={this.state.slug} onChange={(evt) => this.setState({slug: evt.target.value})}/><br></br><br></br>
+                <input type="text" value={this.state.slug} onChange={(evt) => this.setState({slug: evt.target.value})}/><br></br>
                 <button onClick={() => this.props.history.push({
                     pathname: '/params',
                     state: { slug: this.state.slug, lang: this.state.lang }
                     })}>
                         Go to Params Page
                 </button>
-                <button onClick={() => this.props.history.push('/params', {lang: this.state.lang, slug: this.state.slug})}>Go to Params Page</button><br></br>
+                <button onClick={() => this.props.history.push('/params', {lang: this.state.lang, slug: this.state.slug})}>Go to Params Page</button><br></br><br></br>
                 <button onClick={this.hanldeChangeJsonBody}>Change Json Body</button>
             </div>
         )

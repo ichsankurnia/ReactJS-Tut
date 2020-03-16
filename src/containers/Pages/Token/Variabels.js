@@ -15,3 +15,15 @@ export class Variable{
         return {desc1: desc1, desc2: desc2, titlebuton: titlebuton}
     }
 }
+
+export const GetSetter = {
+    _phoneNumber: "",
+
+    get phoneNumber(){
+        return this._phoneNumber
+    },
+
+    set phoneNumber(phoneNumber) {
+        this._phoneNumber = phoneNumber
+    }
+}

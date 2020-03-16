@@ -1,24 +1,23 @@
 import React from "react";
-import { Variable } from "./Variabels";
+import { Variable, GetSetter } from "./Variabels";
 
 export default class Params extends React.Component {
     constructor(props){
         super(props)
+        const {state} = this.props.location
+        let params = state
         this.state = {
-            lang: "",
-            slug: "",
+            lang: params.lang,
+            slug: params.slug,
             desc1: "",
             desc2: "",
+            phoneNumber: "",
         }
+        this.variable = new Variable(this.state.lang, this.state.slug).getDescEKTP()
     }
 
     componentDidMount() {
-        const {state} = this.props.location
-        let params = state
-        const variable = new Variable(params.lang, params.slug).getDescEKTP()
-        console.log(params);
-
-        this.setState({lang: params.lang, slug: params.slug, desc1: variable.desc1, desc2: variable.desc2})
+        this.setState({lang: this.state.lang, slug: this.state.slug, desc1: this.variable.desc1, desc2: this.variable.desc2, phoneNumber: GetSetter.phoneNumber})
     }
 
     render(){
@@ -27,6 +26,7 @@ export default class Params extends React.Component {
                 <h2>Params Page</h2>
                 <p>Language: {this.state.lang}</p>
                 <p>Slugify: {this.state.slug}</p>
+                <p>Phone Number: {this.state.phoneNumber}</p>
                 <p>{this.state.desc1}</p>
                 <p>{this.state.desc2}</p>
                 <button onClick={() => this.props.history.goBack()}>Back</button>

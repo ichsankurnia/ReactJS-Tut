@@ -5,9 +5,8 @@ const postData = (data) => {
         console.log('result:', res)
         if (res.data.status !== 0) {
             alert(res.data.message)
-            localStorage.setItem("token", res.data.data.token);
         }else{
-            this.setState({listMenu: res.data.data.menu_operator})
+            localStorage.setItem("token", res.data.data.token);
         }
     }).catch((err) => {
         console.log(err)

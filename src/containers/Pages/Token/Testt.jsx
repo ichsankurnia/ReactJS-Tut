@@ -1,10 +1,11 @@
 import React from "react";
 import axios from "axios";
 import { Markup } from 'interweave';
+import { GetSetter } from "./Variabels";
 
 class Testt extends React.Component {
     state = {
-        data: [], lang: '', slug: '',
+        data: [], lang: '', slug: '', phoneNumber: '',
         jsonBody: {
             person: {
                 gender: "Man",
@@ -27,6 +28,8 @@ class Testt extends React.Component {
     }
 
     hanldeChangeJsonBody = () => {
+        GetSetter.phoneNumber = this.state.phoneNumber
+        console.log(GetSetter.phoneNumber)
         var newJson = {...this.state.jsonBody}
         newJson.person.gender = "Woman"
         newJson.person.address = "Depok"
@@ -51,6 +54,8 @@ class Testt extends React.Component {
                         Go to Params Page
                 </button>
                 <button onClick={() => this.props.history.push('/params', {lang: this.state.lang, slug: this.state.slug})}>Go to Params Page</button><br></br><br></br>
+                <label>PhoneNumber: </label>
+                <input type="text" value={this.state.phoneNumber} onChange={(evt) => this.setState({phoneNumber: evt.target.value})}/><br></br>
                 <button onClick={this.hanldeChangeJsonBody}>Change Json Body</button>
             </div>
         )

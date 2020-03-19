@@ -47,7 +47,7 @@ export class Variable{
                 desc3 = "Silakan Ambil Kartu SIM Anda dan Pastikan Melakukan Pengaturan Jaringan pada Perangkat"
             }
         }else{
-            desc1 = "The process of " + titleParams; 
+            desc1 = "Process of " + titleParams; 
             desc2 = "Success"
             if(this.slug === "card-upgrade"){
                 desc3 = "Please Take Your SIM Card and Make Sure to Make 4G Network Settings on Your Device"
@@ -66,7 +66,7 @@ export class Variable{
             desc2 = "Tidak Berhasil";
             desc3 = "Silakan Hubungi Customer Service GraPARI untuk Bantuan"
         }else{
-            desc1 = "The process of " + titleParams;
+            desc1 = "Process of " + titleParams;
             desc2 = "Failed"
             desc3 = "Please contact GraPARI Customer Service for assistance"
         }
@@ -134,6 +134,8 @@ export class DescPulsaAndTagihanHalo{
         return desc
     }
 
+    getDesc
+
     getDescPaymentMethod = () => {
         let desc
         if (this._lang === "id") desc = "Pilih Metode Pembayaran"
@@ -185,7 +187,66 @@ export class DescPulsaAndTagihanHalo{
         }
 
         return {desc1: desc1, desc2: desc2, desc3: desc3, desc4: desc4, desc5:desc5, desc6: desc6}
+    }
 
+    getDescBelumSelesai = (title) => {
+        let desc, titleBtn1, titleBtn2
+        if (this._lang === "id"){
+            desc = "Anda belum menyelesaikan proses pembayaran " + title + ". Jika Anda keluar dari menu ini, seluruh uang yang Anda masukkan dapat diambil di Kasir GraPARI dengan menunjukkan struk dari MyGraPARI."
+            titleBtn1 = "Lanjut"; titleBtn2 = "Batal"
+        }else{
+            desc = "You have not completed " + title + " payment process. If you exit this menu, all the money you have entered can be collected at the GraPARI Cashier by showing the receipt from MyGraPARI."
+            titleBtn1 = "Continue"; titleBtn2 = "Cancel"
+        }
+
+        return {desc: desc, titleBtn1: titleBtn1, titleBtn2: titleBtn2}
+    }
+
+    getDescKelebihanBayar = (title, IDR) => {
+        let desc1, desc2, desc3, titleBtn1, titleBtn2
+        if(this._lang === "id"){
+            desc1 = "Terdapat <b>KELEBIHAN BAYAR</b> sebesar Rp " + IDR + "."
+            desc2 = "Mesin ini <b>TIDAK MENGELUARKAN KEMBALIAN.</b>"
+            titleBtn1 = "Lanjut"; titleBtn2 = "Batal"
+            if(this._slug === "pulsa-payment"){
+                desc3 = "Untuk pengembalian terhadap kelebihan bayar, silakan hubungi Kasir GraPARI dengan membawa struk transasksi."
+            }else{
+                desc3 = "Seluruh kembalian akan secara otomatis masuk sebagai deposit ke kartuHalo Anda dan bisa digunakan untuk pembayaran tagihan bulan berikutnya."
+            }
+        }else{
+            desc1 = "There are <b>EXCESS PAYS</b> amounting to IDR "+ IDR + "."
+            desc2 = "This machine <b>DOES NOT SPEND A RETURN</b>"
+            titleBtn1 = "Continue"; titleBtn2 = "Cancel"
+            if(this._slug === "pulsa-payment"){
+                desc3 = "For returns to overpayments, please contact GraPARI Cashier with a transaction receipt."
+            }else{
+                desc3 = "All changes will automatically be entered as a deposit to your kartuHalo and can be used for bill payments for the following month."
+            }
+        }
+        return {desc1: desc1, desc2: desc2, desc3: desc3, titleBtn1: titleBtn1, titleBtn2: titleBtn2}
+    }
+
+    getDescSuksesBayar  = (title, IDR, sisaPulsa) => {
+        let desc1, desc2, desc3, desc4
+        if (this._lang === "id"){
+            desc1 = "Proses pembayaran " + title; desc2 = "Berhasil"
+            desc3 = "Terima kasih telah melakukan pengisian ulang pulsa senilai Rp " + IDR
+            desc4 = "Sisa pulsa Anda kini menjadi Rp " +  sisaPulsa
+        }else{
+            desc1 = "Payment process of " + title; desc2 = "Success"
+            desc3 = "Thank you for topping up for IDR " + IDR; desc4 = "Your remaining credit is now at IDR " + sisaPulsa
+        }
+        return {desc1: desc1, desc2: desc2, desc3: desc3, desc4: desc4}
+    }
+
+    getDescGagalBayar = (title) => {
+        let desc1, desc2, desc3
+        if(this._lang === "id"){
+            desc1 = "Proses pembayaran " + title; desc2 = "Tidak Berhasil"; desc3 = "Silakan hubungi kasir GraPARI untuk bantuan"
+        }else{
+            desc1 = "Payment process of " + title; desc2 = "Failed"; desc3 = "Please contact the GraPARI cashier for assistance"
+        }
+        return {desc1: desc1, desc2: desc2, desc3: desc3}
     }
 }
 //#endregion

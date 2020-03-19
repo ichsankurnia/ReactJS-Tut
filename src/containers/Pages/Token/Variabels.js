@@ -134,7 +134,17 @@ export class DescPulsaAndTagihanHalo{
         return desc
     }
 
-    getDesc
+    getDescHalo = (phoneNumber, IDR) => {
+        let desc1, desc2, titleBtn
+        if(this._lang === "id"){
+            desc1 = "Pada nomor " + phoneNumber + " terbaca memiliki tagihan sebesar Rp " + IDR
+            desc2 = "Tekan <b>LANJUT</b> untuk melanjutkan"; titleBtn = "Lanjut"
+        }else{
+            desc1 = "On number "+phoneNumber+" it reads a bill of IDR " + IDR
+            desc2 = "Press <b>CONTINUE</b> to continue"; titleBtn = "Continue"
+        }
+        return {desc1: desc1, desc2: desc2, titleBtn: titleBtn}
+    }
 
     getDescPaymentMethod = () => {
         let desc

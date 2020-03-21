@@ -31,7 +31,7 @@ export class Variable{
             desc = "Place your <b>Right/Left Index Finger</b> on the fingerprint scanner"
             fail1 = "Please scan your <b>Right/Left Index Finger</b> again, make sure the scanner is clean."
             fail2 = "Sorry, your <b>Finger Print</b> cannot be read on the MyGraPARI system. Please contact GraPARI <b>Customer Service</b> for assistance."
-            loaderDesc = "The process of " + titleParams + " is ongoing, please wait a few moments"
+            loaderDesc = "Process of " + titleParams + " is ongoing, please wait a few moments"
         }
         return {desc: desc, fail1: fail1, fail2: fail2, loaderDesc: loaderDesc}
     }
@@ -52,7 +52,7 @@ export class Variable{
             if(this.slug === "card-upgrade"){
                 desc3 = "Please Take Your SIM Card and Make Sure to Make 4G Network Settings on Your Device"
             }else{
-                desc3 = "Please Take Your SIM Card and Make Sure to Make Network Settings on your Device"
+                desc3 = "Please Take Your SIM Card and Make Sure to Make Network Settings on Your Device"
             }
         }
 
@@ -93,7 +93,7 @@ export class Variable{
 
 //#region Deskripsi Modal ALL Menu
 export class DescModal{
-    getDescConfirm = (lang) => {
+    getDescConfirm = (lang, title) => {
         let desc1, desc2, titleBtn1, titleBtn2
         if(lang === "id"){
             desc1="Anda akan melakukan"; desc2 = "untuk nomor :"; titleBtn1 = "Lanjut"; titleBtn2 = "Batal"
@@ -305,8 +305,35 @@ export class TXID{
         let txID = "X003" + this.getTimeStamp() + lastPhoneNumber + "0"
         return txID
     }
+
+    generateCorrectBill = (bill) => {
+        let correctBill
+        console.log(bill.length)
+        if(bill.length < 4){
+            correctBill = bill
+        }else if(bill.length > 3 && bill.length < 7){
+            correctBill = bill.substring(0, bill.length - 3) + "." + bill.substring(bill.length - 3, bill.length)
+        }else if(bill.length > 6 && bill.length < 10){
+            correctBill = bill.substring(0, bill.length - 6) + "." + bill.substring(bill.length - 6, bill.length - 3) + "." + bill.substring(bill.length - 3, bill.length)
+        }
+        return correctBill
+    }
 }
 //#endregion
+
+export let ClassAPITopUPCash = {
+	"assignment_code": "",
+	"transaction": {
+		"transaction_id": "",
+		"service_id": "",
+		"serial_number": ""
+	},
+	"payment": {
+		"amount": 0,
+		"payment_method": "cash"
+	},
+	"trx_money": [ ]
+}
 
 export const GetSetter = {
     _phoneNumber: "",

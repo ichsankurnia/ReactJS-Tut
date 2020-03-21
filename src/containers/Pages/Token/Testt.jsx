@@ -1,11 +1,13 @@
 import React from "react";
 import axios from "axios";
 import { Markup } from 'interweave';
-import { GetSetter } from "./Variabels";
+import { GetSetter, ClassAPITopUPCash, TXID} from "./Variabels";
+
+const genTxID = new TXID()
 
 class Testt extends React.Component {
     state = {
-        data: [], lang: '', slug: '', phoneNumber: '',
+        data: [], lang: '', slug: '', phoneNumber: '', billAmount: '',
         jsonBody: {
             person: {
                 gender: "Man",
@@ -30,6 +32,28 @@ class Testt extends React.Component {
     hanldeChangeJsonBody = () => {
         GetSetter.phoneNumber = this.state.phoneNumber
         console.log(GetSetter.phoneNumber)
+
+        let pN = GetSetter.phoneNumber
+        if (pN.charAt(0) === "0"){
+            pN = "62" + (pN.substring(1, pN.length))
+        }
+
+        let arrTrxMoney = []
+
+        arrTrxMoney.push({"cash_amount": 1000})
+        arrTrxMoney.push({"cash_amount": 2000})
+        arrTrxMoney.push({"cash_amount": 5000})
+
+        ClassAPITopUPCash.assignment_code = "JGLLMN"
+        ClassAPITopUPCash.transaction.transaction_id = genTxID.generateTXID(GetSetter.phoneNumber)
+        ClassAPITopUPCash.transaction.service_id = pN
+        ClassAPITopUPCash.transaction.serial_number = "12345"
+        ClassAPITopUPCash.payment.amount = 8000
+        ClassAPITopUPCash.payment.payment_method = "cash"
+        ClassAPITopUPCash.trx_money = arrTrxMoney
+
+        console.log(ClassAPITopUPCash)
+
         var newJson = {...this.state.jsonBody}
         newJson.person.gender = "Woman"
         newJson.person.address = "Depok"
@@ -47,16 +71,18 @@ class Testt extends React.Component {
                 <input type="text" value={this.state.lang} onChange={(evt) => this.setState({lang: evt.target.value})} /><br></br>
                 <label>Slugify: </label>
                 <input type="text" value={this.state.slug} onChange={(evt) => this.setState({slug: evt.target.value})}/><br></br>
+                <label>PhoneNumber: </label>
+                <input type="text" value={this.state.phoneNumber} onChange={(evt) => this.setState({phoneNumber: evt.target.value})}/><br></br>
+                <label>Bill Amount: </label>
+                <input type="text" value={this.state.billAmount} onChange={(evt) => this.setState({billAmount: evt.target.value})}/><br></br>
+                <button onClick={this.hanldeChangeJsonBody}>Change Json Body</button><br></br>
                 <button onClick={() => this.props.history.push({
                     pathname: '/params',
-                    state: { slug: this.state.slug, lang: this.state.lang }
+                    state: { slug: this.state.slug, lang: this.state.lang, bill: this.state.billAmount }
                     })}>
                         Go to Params Page
                 </button>
-                <button onClick={() => this.props.history.push('/params', {lang: this.state.lang, slug: this.state.slug})}>Go to Params Page</button><br></br><br></br>
-                <label>PhoneNumber: </label>
-                <input type="text" value={this.state.phoneNumber} onChange={(evt) => this.setState({phoneNumber: evt.target.value})}/><br></br>
-                <button onClick={this.hanldeChangeJsonBody}>Change Json Body</button>
+                <button onClick={() => this.props.history.push('/params', {lang: this.state.lang, slug: this.state.slug, bill: this.state.billAmount})}>Go to Params Page</button><br></br>
             </div>
         )
     }

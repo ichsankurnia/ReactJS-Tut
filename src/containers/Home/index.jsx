@@ -83,6 +83,7 @@ export default Home;
 2 Handle Websocket => Munculin modal => kasih timeout => kembali ke page awal
 3 log api ke agent
 4 loader saat pembayaran
+5 struk uang bersisa
 
 
 kl pas websocket nya ngga konek flow nya reconect websocket > kirim lagi command yg sama (misal ba_recieve)

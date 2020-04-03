@@ -2,6 +2,12 @@ import React, { Component, Fragment } from 'react'
 import axios from "axios";
 import CryptoJS from "crypto-js";
 
+let auth = {
+    "username": "ondol",
+    "terminal_code": "01038002",
+    "password": "+xvn26dGnY0Muaue3JlEbA=="
+}
+
 class Login extends Component{
     state = {
         usn: "ondol",
@@ -41,17 +47,23 @@ class Login extends Component{
     }
 
     handleSubmit = () => {
-        var newData = {...this.state.data}; //copy seluru obj ke formAddNew
-        var encrypted = this.encryptAes(this.state.pwd)
-        newData['username'] = this.state.usn;
-        newData["terminal_code"] = this.state.trl;
-        newData["password"] = encrypted;
-        this.setState({
-            dataLogin: newData
-        }, () => {
-            console.log(this.state)
-            this.postLogin(this.state.dataLogin)
-        })
+        // var newData = {...this.state.data}; //copy seluru obj ke formAddNew
+        // var encrypted = this.encryptAes(this.state.pwd)
+        // newData['username'] = this.state.usn;
+        // newData["terminal_code"] = this.state.trl;
+        // newData["password"] = encrypted;
+        // this.setState({
+        //     dataLogin: newData
+        // }, () => {
+        //     console.log(this.state)
+        //     this.postLogin(this.state.dataLogin)
+        // })
+
+        auth.username = this.state.usn
+        auth.password = this.encryptAes(this.state.pwd)
+        auth.terminal_code = this.state.trl;
+
+        this.postLogin(auth)
     }
 
 

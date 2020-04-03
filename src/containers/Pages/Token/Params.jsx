@@ -21,6 +21,7 @@ export default class Params extends React.Component {
     }
 
     componentDidMount() {
+        console.log(this.props);
         let pN = GetSetter.phoneNumber
         if (pN.charAt(0) === "0"){
             pN = "62" + (pN.substring(1, pN.length))

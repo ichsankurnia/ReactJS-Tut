@@ -47,12 +47,34 @@ class Testt extends React.Component {
         ClassAPITopUPCash.assignment_code = "JGLLMN"
         ClassAPITopUPCash.transaction.transaction_id = genTxID.generateTXID(GetSetter.phoneNumber)
         ClassAPITopUPCash.transaction.service_id = pN
-        ClassAPITopUPCash.transaction.serial_number = "12345"
-        ClassAPITopUPCash.payment.amount = 8000
+        ClassAPITopUPCash.payment.amount = "8000"
+        ClassAPITopUPCash.payment.fee = "0"
+        ClassAPITopUPCash.payment.total_amount = "10000"
         ClassAPITopUPCash.payment.payment_method = "cash"
+        ClassAPITopUPCash.payment.status = "Paid"
         ClassAPITopUPCash.trx_money = arrTrxMoney
+        
+        let arrBaru = []
+        arrTrxMoney.forEach(element => {
+            arrBaru.push({'cash_amount':element.cash_amount, 'assignment_code':'asd'})
+        });
 
+        alert(JSON.stringify(ClassAPITopUPCash))
+        alert(JSON.stringify(arrBaru))
         console.log(ClassAPITopUPCash)
+
+        axios.post("http://dev.nutech-integrasi.com:7010/transaction/top-up", ClassAPITopUPCash, {
+            headers: {
+              authorization: `Bearer ${localStorage.getItem("token")}`,
+              Accept: "application/json",
+              "Content-Type": "application/json"
+            }
+          }).then((res) => {
+            // alert(JSON.stringify(res))
+            console.log(res)
+        }).catch((err)=> {
+            console.log(err)
+        })
 
         var newJson = {...this.state.jsonBody}
         newJson.person.gender = "Woman"

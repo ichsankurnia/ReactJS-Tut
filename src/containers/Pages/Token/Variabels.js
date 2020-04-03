@@ -322,15 +322,17 @@ export class TXID{
 //#endregion
 
 export let ClassAPITopUPCash = {
-	"assignment_code": "",
+    "assignment_code": "",
 	"transaction": {
 		"transaction_id": "",
-		"service_id": "",
-		"serial_number": ""
+		"service_id": ""
 	},
 	"payment": {
-		"amount": 0,
-		"payment_method": "cash"
+		"amount": "",
+		"fee": "",
+		"total_amount": "",
+		"payment_method": "cash",
+		"status": "Paid"
 	},
 	"trx_money": [ ]
 }

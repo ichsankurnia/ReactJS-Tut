@@ -84,11 +84,13 @@ export default Home;
 3 log api ke agent
 4 loader saat pembayaran
 5 struk uang bersisa
-
+6 loader when scan      [DONE]
 
 kl pas websocket nya ngga konek flow nya reconect websocket > kirim lagi command yg sama (misal ba_recieve)
 > jika web socket gagal hit api device monitoring BA error (1) > tampilkan modal > kembali kehalaman utama
 
 kl ada respon code "0" baru lanjut masuk ke menu nya,
 kl respon error dr web socket jgn lanjut, trus hit api device monitoring system error (1)
+
+pilihpkate => buttonpaket => metodebayar => cardbayar => konfirmasibayar => pembayaranpulsa => berhasil
 */

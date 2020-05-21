@@ -73,7 +73,10 @@ class Testt extends React.Component {
             // alert(JSON.stringify(res))
             console.log(res)
         }).catch((err)=> {
-            console.log(err)
+            var jsonError = JSON.parse(JSON.stringify(err))
+            console.log(jsonError)
+            console.log("URL : " + jsonError.config.url + "\nMethod : " + jsonError.config.method + "\nData : " + jsonError.config.data +
+            "\nHeaders Accept : " + jsonError.config.headers.Accept + "\nHeaders Content-Type : " + "\nHeaders authorization : " + jsonError.config.headers.authorization)
         })
 
         var newJson = {...this.state.jsonBody}

@@ -31,7 +31,7 @@ class Home extends Component{
 
     render(){
         return(
-            <BrowserRouter>
+            <BrowserRouter basename="/reacttut">
                 <Fragment>
                     {/* <p>Counter</p>
                     <hr style={{backgroundColor:'black', height:'2px'}} />
@@ -77,20 +77,11 @@ class Home extends Component{
 
 export default Home;
 
-// TODO Tomorow
+// NOTE
 /*
-1 get menu dari api => routing => logic 
-2 Handle Websocket => Munculin modal => kasih timeout => kembali ke page awal
-3 log api ke agent
-4 loader saat pembayaran
-5 struk uang bersisa
-6 loader when scan      [DONE]
 
-kl pas websocket nya ngga konek flow nya reconect websocket > kirim lagi command yg sama (misal ba_recieve)
-> jika web socket gagal hit api device monitoring BA error (1) > tampilkan modal > kembali kehalaman utama
+Kalau nge build aplikasi kalau homepage nya gini "homepage": "https://ciherang.goes2nobel.com/reacttut"
+kalau pake browserrouter yg kaya harus ditambahin basenamenya <BrowserRouter basename="/reacttut"> jadi kaya gini, path belakang nya harus sesuai
 
-kl ada respon code "0" baru lanjut masuk ke menu nya,
-kl respon error dr web socket jgn lanjut, trus hit api device monitoring system error (1)
 
-pilihpkate => buttonpaket => metodebayar => cardbayar => konfirmasibayar => pembayaranpulsa => berhasil
 */

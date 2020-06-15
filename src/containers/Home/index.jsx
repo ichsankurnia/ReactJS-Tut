@@ -6,6 +6,7 @@ import DetailPost from '../Pages/BlogPost/DetailPost';
 import Counter from '../Pages/Counter';
 import LifeCycleComp from '../Pages/LifeCycleComp';
 import Test from '../Pages/Test';
+import TestForm from '../Pages/Test/TestForm';
 import YouTube from '../Pages/YouTube';
 import HomeToken from "../Pages/Token/HomeToken";
 import Login from "../Pages/Token/Login";
@@ -54,6 +55,7 @@ class Home extends Component{
                         <Link to="/youtube" >YouTube</Link>
                         <Link to="/hometoken" >Token</Link>
                         <Link to="/testt">Testt</Link>
+                        <Link to="/form">Form</Link>
                     </div>
                     <hr style={{backgroundColor:'black', height:'2px'}} />
 
@@ -69,6 +71,7 @@ class Home extends Component{
                     <Route path="/detail-balance/:menu" component={DetailBalance} />
                     <Route path="/testt" component={Testt} />
                     <Route path="/params" component={Params} />
+                    <Route path="/form" component={TestForm} />
                 </Fragment>
             </BrowserRouter>
         )

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercise ReactApp</title>
+        <style type="text/css">
+            body {
+                margin: 0;
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+                'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+                sans-serif;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+
+            code {
+                font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+            }
+
+            .App {
+                text-align: center;
+            }
+
+            .App-logo {
+                height: 45vmin;
+                pointer-events: none;
+            }
+
+            @media (prefers-reduced-motion: no-preference) {
+                .App-logo {
+                    animation: App-logo-spin infinite 10s linear;
+                }
+            }
+
+            .App-header {
+                background-color: #282c34;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                font-size: calc(10px + 2vmin);
+                color: white;
+            }
+
+            .App-link {
+                color: #61dafb;
+            }
+
+            @keyframes App-logo-spin {
+                from {
+                    transform: rotate(0deg);
+                }
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+            
+            .App-header h2 {
+                margin-top: 60px;
+            }
+            .App-header h3{
+                margin-top: -15px;
+                margin-bottom: 10;
+            }
+            .App-header button {
+                width: 35%;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                font-size: 27px;
+                font-weight: 600;
+                color: white;
+                border-radius: 10px;
+                border-style: solid;
+                border-color: #ED1C24;
+                background-color: #ED1C24;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="App">
+            <header class="App-header">
+              <img src="logo-telkomsel.png" class="App-logo" alt="logo" />
+              <h2>Tidak ada koneksi internet</h2>
+              <h3>Harap hubungi Customer Service MyGraPARI</h3>
+              <button onclick="onClick()">
+                  Muat ulang
+              </button>
+            </header>
+          </div>
+          <script>
+                function onClick() {
+                    window.location.reload()
+                }
+          </script>
+    </body>
+</html>

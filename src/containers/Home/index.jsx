@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import {BrowserRouter, Route, Link} from "react-router-dom";
+import { Offline, Online } from "react-detect-offline";
 
 import BlogPost from '../Pages/BlogPost';
 import DetailPost from '../Pages/BlogPost/DetailPost';
@@ -14,6 +15,7 @@ import Balance from "../Pages/Token/Balance";
 import DetailBalance from "../Pages/Token/DetailBalance";
 import Testt from '../Pages/Token/Testt';
 import Params from '../Pages/Token/Params';
+import OfflinePage from '../Pages/Offline/offline';
 
 import "./index.css";
 
@@ -32,48 +34,57 @@ class Home extends Component{
 
     render(){
         return(
-            <BrowserRouter basename="/reacttut">
-                <Fragment>
-                    {/* <p>Counter</p>
-                    <hr style={{backgroundColor:'black', height:'2px'}} />
-                    <Counter /> */}
-                    {/* <p>Life Cycle Component</p>
-                    <hr style={{backgroundColor:'black', height:'2px'}} />
-                    {
-                        this.state.showComponent?
-                            <LifeCycleComp />: null
-                    } */}
-                    {/* <p>Blog Post</p> */}
-                    {/* <hr style={{backgroundColor:'black', height:'2px'}} /> */}
-                    {/* <BlogPost /> */}
-                    {/* <Test /> */}
-                    <div className="navigation">
-                        <Link to="/" >Blog Post</Link>
-                        <Link to="/counter" >Counter</Link>
-                        <Link to="/lifecycle" >LifeCycle</Link>
-                        <Link to="/test" >Test</Link>
-                        <Link to="/youtube" >YouTube</Link>
-                        <Link to="/hometoken" >Token</Link>
-                        <Link to="/testt">Testt</Link>
-                        <Link to="/form">Form</Link>
-                    </div>
-                    <hr style={{backgroundColor:'black', height:'2px'}} />
+            <Fragment>
+                <Offline>
+                    <OfflinePage />
+                </Offline>
+                <Online>
+                    {/* <BrowserRouter basename="/reacttut"> */}
+                    {/* <BrowserRouter> */}
+                    <BrowserRouter basename="/ReactApp/exercise/">
+                        <Fragment>
+                            {/* <p>Counter</p>
+                            <hr style={{backgroundColor:'black', height:'2px'}} />
+                            <Counter /> */}
+                            {/* <p>Life Cycle Component</p>
+                            <hr style={{backgroundColor:'black', height:'2px'}} />
+                            {
+                                this.state.showComponent?
+                                    <LifeCycleComp />: null
+                            } */}
+                            {/* <p>Blog Post</p> */}
+                            {/* <hr style={{backgroundColor:'black', height:'2px'}} /> */}
+                            {/* <BlogPost /> */}
+                            {/* <Test /> */}
+                            <div className="navigation">
+                                <Link to="/" >Blog Post</Link>
+                                <Link to="/counter" >Counter</Link>
+                                <Link to="/lifecycle" >LifeCycle</Link>
+                                <Link to="/test" >Test</Link>
+                                <Link to="/youtube" >YouTube</Link>
+                                <Link to="/hometoken" >Token</Link>
+                                <Link to="/testt">Testt</Link>
+                                <Link to="/form">Form</Link>
+                            </div>
+                            <hr style={{backgroundColor:'black', height:'2px'}} />
 
-                    <Route path="/" exact component={BlogPost} />
-                    <Route path="/detail-post/:postId" exact component={DetailPost} />
-                    <Route path="/counter" component={Counter} />
-                    <Route path="/lifecycle" component={LifeCycleComp} />
-                    <Route path="/test" component={Test} />
-                    <Route path="/youtube" component={YouTube} />
-                    <Route path="/login" component={Login} />
-                    <Route path="/balance" component={Balance} />
-                    <Route path="/hometoken" component={HomeToken} />
-                    <Route path="/detail-balance/:menu" component={DetailBalance} />
-                    <Route path="/testt" component={Testt} />
-                    <Route path="/params" component={Params} />
-                    <Route path="/form" component={TestForm} />
-                </Fragment>
-            </BrowserRouter>
+                            <Route path="/" exact component={BlogPost} />
+                            <Route path="/detail-post/:postId" exact component={DetailPost} />
+                            <Route path="/counter" component={Counter} />
+                            <Route path="/lifecycle" component={LifeCycleComp} />
+                            <Route path="/test" component={Test} />
+                            <Route path="/youtube" component={YouTube} />
+                            <Route path="/login" component={Login} />
+                            <Route path="/balance" component={Balance} />
+                            <Route path="/hometoken" component={HomeToken} />
+                            <Route path="/detail-balance/:menu" component={DetailBalance} />
+                            <Route path="/testt" component={Testt} />
+                            <Route path="/params" component={Params} />
+                            <Route path="/form" component={TestForm} />
+                        </Fragment>
+                    </BrowserRouter>
+                </Online>
+            </Fragment>
         )
     }
 }

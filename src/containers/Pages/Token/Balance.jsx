@@ -19,7 +19,7 @@ class Balance extends Component{
         axios.post("http://dev.nutech-integrasi.com:7010/auth/login-device", data).then((res) => {
             console.log('result:', res)
             if (res.data.status !== 0) {
-                alert(res.data.message)
+                // alert(res.data.message)
                 this.props.history.push('/login')
             }else{
                 localStorage.setItem("token", res.data.data.token);

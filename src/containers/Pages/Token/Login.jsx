@@ -8,14 +8,26 @@ let auth = {
     "password": "+xvn26dGnY0Muaue3JlEbA=="
 }
 
+var fail = 0
+
+const postDataLogin = async (data) => {
+    const res = await axios.post("http://dev.nutech-integrasi.com:7010/auth/login-device", data)
+    console.log(data)
+
+    console.log(res)
+    fail = 0
+    return res
+
+}
+
 class Login extends Component{
     state = {
-        usn: "ondol",
-        pwd: "",
-        trl: "01038002",
+        usn: "balikpapan01",
+        pwd: "admin123",
+        trl: "N0000001",
         dataLogin : {
-            "username": "ondol",
-            "terminal_code": "01038002",
+            "username": "balikpapan01",
+            "terminal_code": "N0000001",
             "password": "+xvn26dGnY0Muaue3JlEbA=="
         }
     }
@@ -46,7 +58,7 @@ class Login extends Component{
         });
     }
 
-    handleSubmit = () => {
+    handleSubmit = async () => {
         // var newData = {...this.state.data}; //copy seluru obj ke formAddNew
         // var encrypted = this.encryptAes(this.state.pwd)
         // newData['username'] = this.state.usn;
@@ -59,11 +71,17 @@ class Login extends Component{
         //     this.postLogin(this.state.dataLogin)
         // })
 
-        auth.username = this.state.usn
-        auth.password = this.encryptAes(this.state.pwd)
-        auth.terminal_code = this.state.trl;
-
-        this.postLogin(auth)
+        try {
+            auth.username = await this.state.usn
+            auth.password = await this.encryptAes(this.state.pwd)
+            auth.terminal_code = await this.state.trl;
+    
+            // this.postLogin(auth)
+            const res = await postDataLogin(auth)
+            console.log(res)
+        } catch (error) {
+            console.log(error)
+        }
     }
 
 

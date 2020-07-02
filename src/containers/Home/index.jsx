@@ -35,10 +35,10 @@ class Home extends Component{
     render(){
         return(
             <Fragment>
-                <Offline>
-                    <OfflinePage />
-                </Offline>
-                <Online>
+                {/* <Offline> */}
+                    {/* <OfflinePage /> */}
+                {/* </Offline> */}
+                {/* <Online> */}
                     {/* <BrowserRouter basename="/reacttut"> */}
                     {/* <BrowserRouter> */}
                     <BrowserRouter basename="/ReactApp/exercise/">
@@ -83,7 +83,7 @@ class Home extends Component{
                             <Route path="/form" component={TestForm} />
                         </Fragment>
                     </BrowserRouter>
-                </Online>
+                {/* </Online> */}
             </Fragment>
         )
     }

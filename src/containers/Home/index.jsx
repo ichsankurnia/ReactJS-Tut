@@ -15,6 +15,7 @@ import Balance from "../Pages/Token/Balance";
 import DetailBalance from "../Pages/Token/DetailBalance";
 import Testt from '../Pages/Token/Testt';
 import Params from '../Pages/Token/Params';
+import TestKeyboard from '../Pages/Keyboard/Keyboard';
 import OfflinePage from '../Pages/Offline/offline';
 
 import "./index.css";
@@ -65,6 +66,7 @@ class Home extends Component{
                                 <Link to="/hometoken" >Token</Link>
                                 <Link to="/testt">Testt</Link>
                                 <Link to="/form">Form</Link>
+                                <Link to="/keyboard">Keyboard</Link>
                             </div>
                             <hr style={{backgroundColor:'black', height:'2px'}} />
 
@@ -81,6 +83,7 @@ class Home extends Component{
                             <Route path="/testt" component={Testt} />
                             <Route path="/params" component={Params} />
                             <Route path="/form" component={TestForm} />
+                            <Route path="/keyboard" component={TestKeyboard} />
                         </Fragment>
                     </BrowserRouter>
                 {/* </Online> */}

@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import {BrowserRouter, Route, Link} from "react-router-dom";
-import { Offline, Online } from "react-detect-offline";
+// import { Offline, Online } from "react-detect-offline";
 
 import BlogPost from '../Pages/BlogPost';
 import DetailPost from '../Pages/BlogPost/DetailPost';
@@ -16,7 +16,7 @@ import DetailBalance from "../Pages/Token/DetailBalance";
 import Testt from '../Pages/Token/Testt';
 import Params from '../Pages/Token/Params';
 import TestKeyboard from '../Pages/Keyboard/Keyboard';
-import OfflinePage from '../Pages/Offline/offline';
+// import OfflinePage from '../Pages/Offline/offline';
 
 import "./index.css";
 

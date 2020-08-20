@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import "./index.css";
-import CounterChild from './CounterChild';
+import CounterChildRedux, { CounterChild } from './CounterChild';
+import { connect } from 'react-redux';
 
 class Counter extends Component{
     state = {
@@ -17,16 +18,33 @@ class Counter extends Component{
     render(){
         return(
             <Fragment>
-                <div className="card">
-                    <div className="header">
-                        <p>Header</p>
-                        <div className="count-head">{this.state.count}</div>
+                <div style={{display: 'flex', justifyContent: 'space-around'}}>
+                    <div className="card">
+                        <div className="header">
+                            <p>Update by Normal Props</p>
+                            <div className="count-head">{this.state.count}</div>
+                        </div>
+                        <CounterChild onCounterChange={(value) => this.handleCounterChange(value) } />
                     </div>
-                    <CounterChild onCounterChange={(value) => this.handleCounterChange(value) } />
+                    <div className="card">
+                        <div className="header">
+                            <p>Update by Redux</p>
+                            <div className="count-head">{this.props.order}</div>
+                        </div>
+                        <CounterChildRedux />
+                    </div>
                 </div>
             </Fragment>
         )
     }
 }
 
-export default Counter;
+
+const mapStateToProps = (state) => {
+    return {
+        order: state.totalOrder
+    }
+}
+
+
+export default connect(mapStateToProps)(Counter);

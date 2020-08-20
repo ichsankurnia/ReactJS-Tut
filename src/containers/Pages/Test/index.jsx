@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
 
 class Test extends Component{
     state = {
-        count : 10
+        // count : 10
+        count : this.props.totalCount
     }
 
     componentDidMount() {
@@ -31,4 +33,11 @@ class Test extends Component{
     }
 }
 
-export default Test;
+
+const mapStateToProps = (state) => {
+    return {
+        totalCount : state.totalOrder
+    }
+}
+
+export default connect(mapStateToProps)(Test);

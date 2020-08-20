@@ -8,14 +8,11 @@ let auth = {
     "password": "+xvn26dGnY0Muaue3JlEbA=="
 }
 
-var fail = 0
-
 const postDataLogin = async (data) => {
     const res = await axios.post("http://dev.nutech-integrasi.com:7010/auth/login-device", data)
     console.log(data)
 
     console.log(res)
-    fail = 0
     return res
 
 }
@@ -117,8 +114,8 @@ class Login extends Component{
 
         try {
             if (urlSafe) {
-                chiperText = chiperText.replace(/\-/g, '+');
-                chiperText = chiperText.replace(/\_/g, '/');
+                chiperText = chiperText.replace(/\-/g, '+');    //eslint-disable-line
+                chiperText = chiperText.replace(/\_/g, '/');    //eslint-disable-line
             }
 
             let plainText = crypto.AES.decrypt(chiperText, key, {iv:iv});

@@ -23,6 +23,7 @@ class Testt extends React.Component {
     componentDidMount() {
         console.log(this.state.jsonBody);
         axios.get(`http://ciherang.goes2nobel.com/node/mygrapari/menu/${2}`).then(res => {
+            console.log(res)
             this.setState({
               data: res.data.data
           })
@@ -75,8 +76,8 @@ class Testt extends React.Component {
         }).catch((err)=> {
             var jsonError = JSON.parse(JSON.stringify(err))
             console.log(jsonError)
-            console.log("URL : " + jsonError.config.url + "\nMethod : " + jsonError.config.method + "\nData : " + jsonError.config.data +
-            "\nHeaders Accept : " + jsonError.config.headers.Accept + "\nHeaders Content-Type : " + "\nHeaders authorization : " + jsonError.config.headers.authorization)
+            console.log("URL : " , jsonError.config.url , "\nMethod : " , jsonError.config.method , "\nData : " , jsonError.config.data ,
+            "\nHeaders Accept : " , jsonError.config.headers.Accept , "\nHeaders Content-Type : " , "\nHeaders authorization : " , jsonError.config.headers.authorization)
         })
 
         var newJson = {...this.state.jsonBody}
@@ -90,24 +91,28 @@ class Testt extends React.Component {
     render(){
         return(
             <div>
-                <li>{this.state.data.menu}</li>
-                <div><Markup content={this.state.data.desc1} /></div><br></br>
-                <label>Language: </label>
-                <input type="text" value={this.state.lang} onChange={(evt) => this.setState({lang: evt.target.value})} /><br></br>
-                <label>Slugify: </label>
-                <input type="text" value={this.state.slug} onChange={(evt) => this.setState({slug: evt.target.value})}/><br></br>
-                <label>PhoneNumber: </label>
-                <input type="text" value={this.state.phoneNumber} onChange={(evt) => this.setState({phoneNumber: evt.target.value})}/><br></br>
-                <label>Bill Amount: </label>
-                <input type="text" value={this.state.billAmount} onChange={(evt) => this.setState({billAmount: evt.target.value})}/><br></br>
-                <button onClick={this.hanldeChangeJsonBody}>Change Json Body</button><br></br>
-                <button onClick={() => this.props.history.push({
-                    pathname: '/params',
-                    state: { slug: this.state.slug, lang: this.state.lang, bill: this.state.billAmount }
-                    })}>
-                        Go to Params Page
-                </button>
-                <button onClick={() => this.props.history.push('/params', {lang: this.state.lang, slug: this.state.slug, bill: this.state.billAmount})}>Go to Params Page</button><br></br>
+                {this.state.data !== undefined && this.state.data !== null && (
+                    <div>
+                        <li>{this.state.data.menu}</li>
+                        <div><Markup content={this.state.data.desc1} /></div><br></br>
+                        <label>Language: </label>
+                        <input type="text" value={this.state.lang} onChange={(evt) => this.setState({lang: evt.target.value})} /><br></br>
+                        <label>Slugify: </label>
+                        <input type="text" value={this.state.slug} onChange={(evt) => this.setState({slug: evt.target.value})}/><br></br>
+                        <label>PhoneNumber: </label>
+                        <input type="text" value={this.state.phoneNumber} onChange={(evt) => this.setState({phoneNumber: evt.target.value})}/><br></br>
+                        <label>Bill Amount: </label>
+                        <input type="text" value={this.state.billAmount} onChange={(evt) => this.setState({billAmount: evt.target.value})}/><br></br>
+                        <button onClick={this.hanldeChangeJsonBody}>Change Json Body</button><br></br>
+                        <button onClick={() => this.props.history.push({
+                            pathname: '/params',
+                            state: { slug: this.state.slug, lang: this.state.lang, bill: this.state.billAmount }
+                        })}>
+                                Go to Params Page
+                        </button>
+                        <button onClick={() => this.props.history.push('/params', {lang: this.state.lang, slug: this.state.slug, bill: this.state.billAmount})}>Go to Params Page</button><br></br>
+                    </div>
+                )}
             </div>
         )
     }

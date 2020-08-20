@@ -4,11 +4,10 @@
  * Here's another example, in case you need it:
  * https://codesandbox.io/s/github/simple-keyboard/multiple-inputs-wrapper-router/tree/master/?file=/src/Home.js
  */
-import React, { useRef, useState, Component } from "react";
+import React, { Component } from "react";
 import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
 import "./Keyboard.css";
-import { createRef } from "react";
 
 /*
 function TestKeyboard() {
@@ -51,13 +50,13 @@ function TestKeyboard() {
 
   return (
     <div className="App">
-      <input
+      <input className="input-keyboard"
         id="firstName"
         value={getInputValue("firstName")}
         onFocus={() => setInputName("firstName")}
         onChange={onChangeInput}
       />
-      <input
+      <input className="input-keyboard"
         id="lastName"
         value={getInputValue("lastName")}
         onFocus={() => setInputName("lastName")}
@@ -89,80 +88,81 @@ class TestKeyboard extends Component {
     }
 
     // Tell simple-keyboard which input is active
-    // setActiveInput = (e) => {
-    //     this.setState({
-    //         inputName: e.target.name
-    //     });
-    // }
+    setActiveInput = (e) => {
+        this.setState({
+            inputName: e.target.name
+        });
+    }
     
-    // // When the inputs are changed
-    // // (retrieves all inputs as an object instead of just the current input's string)
-    // onChangeAll = (inputs) => {
-    //     this.setState({
-    //         inputs: inputs
-    //     }, () => {
-    //         console.log("Inputs changed", inputs);
-    //     });
-    // }
+    // When the inputs are changed
+    // (retrieves all inputs as an object instead of just the current input's string)
+    onChangeAll = (inputs) => {
+        this.setState({
+            inputs: inputs
+        }, () => {
+            console.log("Inputs changed", inputs);
+        });
+    }
 
-  onChangeAll = (inputs) => {
-    var newInputList = {...this.state.inputList}
-    newInputList = inputs
+    /* COMPLETE LOGIC */
+  // onChangeAll = (inputs) => {
+  //   var newInputList = {...this.state.inputList}
+  //   newInputList = inputs
 
-    this.setState({ inputList: newInputList });
-    console.log("Input changed", inputs);
-    console.log(this.state)
-  };
+  //   this.setState({ inputList: newInputList });
+  //   console.log("Input changed", inputs);
+  //   console.log(this.state)
+  // };
 
-  onKeyPress = button => {
-    console.log("Button pressed", button);
+  // onKeyPress = button => {
+  //   console.log("Button pressed", button);
 
-    if (button === "{shift}" || button === "{lock}") this.handleShift();
-  };
+  //   if (button === "{shift}" || button === "{lock}") this.handleShift();
+  // };
 
-  handleShift = () => {
-    const layoutName = this.state.layoutName;
+  // handleShift = () => {
+  //   const layoutName = this.state.layoutName;
 
-    this.setState({
-      layoutName: layoutName === "default" ? "shift" : "default"
-    });
-  };
+  //   this.setState({
+  //     layoutName: layoutName === "default" ? "shift" : "default"
+  //   });
+  // };
 
-  onChangeInput = (e) => {
-    const inputVal = e.target.value;
+  // onChangeInput = (e) => {
+  //   const inputVal = e.target.value;
 
-    var newInputList = {...this.state.inputList}
-    newInputList[e.target.name] = inputVal
+  //   var newInputList = {...this.state.inputList}
+  //   newInputList[e.target.name] = inputVal
 
-    this.setState({
-        inputList: newInputList
-    })
+  //   this.setState({
+  //       inputList: newInputList
+  //   })
 
-    this.keyboard.setInput(inputVal);
-  };
+  //   this.keyboard.setInput(inputVal);
+  // };
 
-    getInputValue = (inputName) => {
-        console.log(this.state.inputList[inputName])
-        return this.state.inputList[inputName] || "";
-    };
+  //   getInputValue = (inputName) => {
+  //       console.log(this.state.inputList[inputName])
+  //       return this.state.inputList[inputName] || "";
+  //   };
 
   render() {
     return (
       <div>
-        <input
+        <input className="input-keyboard"
             name="firstname"
-            // onFocus={this.setActiveInput} defaultValue={this.state.inputs['firstname'] || ""}
-          value={this.getInputValue('firstname')} name="firstname"
-          onChange={this.onChangeInput}
-          onFocus={() => this.setState({inputName: 'firstname'})}
+            onFocus={this.setActiveInput} defaultValue={this.state.inputs['firstname'] || ""}
+          // value={this.getInputValue('firstname')}                                                                  // complete logic
+          // onChange={this.onChangeInput}                                                                            // complete logic
+          // onFocus={() => this.setState({inputName: 'firstname'})}                                                  // complete logic
           placeholder={"Tap on the virtual keyboard to start"}
         />
-        <input
-            // name="lastname"
-            // onFocus={this.setActiveInput} defaultValue={this.state.inputs['lastname'] || ""}
-          value={this.getInputValue('lastname')} name="lastname"
-          onChange={this.onChangeInput}
-          onFocus={() => this.setState({inputName: 'lastname'})}
+        <input className="input-keyboard"
+            name="lastname"
+            onFocus={this.setActiveInput} defaultValue={this.state.inputs['lastname'] || ""}
+          // value={this.getInputValue('lastname')}                                                                   // complete logic
+          // onChange={this.onChangeInput}                                                                            // complete logic
+          // onFocus={() => this.setState({inputName: 'lastname'})}                                                   // complete logic
           placeholder={"Tap on the virtual keyboard to start"}
         />
         <Keyboard

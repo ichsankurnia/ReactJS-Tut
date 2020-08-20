@@ -1,13 +1,6 @@
 import React from "react";
 import axios from "axios";
 
-const data = {
-    title: "",
-    body: "",
-    file: ""
-}
-
-
 export default class TestForm extends React.Component{
     constructor(props){
         super(props)

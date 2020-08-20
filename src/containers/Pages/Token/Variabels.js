@@ -266,8 +266,9 @@ export class DescPulsaAndTagihanHalo{
 export class TXID{
 
     correctDate = (params) => {
-        params < 10? params  = "0" + params : params = params
-        return params
+        let res = ""
+        params < 10? res  = "0" + params : res = params
+        return res
     }
 
     correctMili = (mili) => {

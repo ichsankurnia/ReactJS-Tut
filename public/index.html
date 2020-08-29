@@ -21,7 +21,7 @@
           //         .catch((err) => console.log('Failure: ', err));
           // })
           window.addEventListener('load', function() {
-            navigator.serviceWorker.register('./serviceworker.js').then(function(registration) {
+            navigator.serviceWorker.register('%PUBLIC_URL%/serviceworker.js').then(function(registration) {
             // Registration was successful
             console.log('ServiceWorker registration successful with scope: ', registration.scope);
           }, function(err) {

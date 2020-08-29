@@ -1,7 +1,8 @@
 import ActionType from "./globalActionType";
 
 const globalState = {
-    totalOrder: 0
+    totalOrder: 0,
+    testState: 'jhjas'
 }
 
 /* REDUCER */

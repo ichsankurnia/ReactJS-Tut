@@ -91,7 +91,7 @@ class TestKeyboard extends Component {
     setActiveInput = (e) => {
         this.setState({
             inputName: e.target.name
-        });
+        }, console.log(this.state.inputName));
     }
     
     // When the inputs are changed
@@ -114,19 +114,19 @@ class TestKeyboard extends Component {
   //   console.log(this.state)
   // };
 
-  // onKeyPress = button => {
-  //   console.log("Button pressed", button);
+  onKeyPress = button => {
+    console.log("Button pressed", button);
 
-  //   if (button === "{shift}" || button === "{lock}") this.handleShift();
-  // };
+    if (button === "{shift}" || button === "{lock}") this.handleShift();
+  };
 
-  // handleShift = () => {
-  //   const layoutName = this.state.layoutName;
+  handleShift = () => {
+    const layoutName = this.state.layoutName;
 
-  //   this.setState({
-  //     layoutName: layoutName === "default" ? "shift" : "default"
-  //   });
-  // };
+    this.setState({
+      layoutName: layoutName === "default" ? "shift" : "default"
+    });
+  };
 
   // onChangeInput = (e) => {
   //   const inputVal = e.target.value;

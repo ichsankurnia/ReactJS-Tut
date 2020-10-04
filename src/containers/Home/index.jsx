@@ -19,6 +19,7 @@ import TestKeyboard from '../Pages/Keyboard/Keyboard';
 // import OfflinePage from '../Pages/Offline/offline';
 
 import "./index.css";
+import TestObject from '../Pages/Test/TestObject';
 
 class Home extends Component{
     state = {
@@ -67,6 +68,7 @@ class Home extends Component{
                                 <Link to="/testt">Testt</Link>
                                 <Link to="/form">Form</Link>
                                 <Link to="/keyboard">Keyboard</Link>
+                                <Link to="/test-object">TestObject</Link>
                             </div>
                             <hr style={{backgroundColor:'black', height:'2px'}} />
 
@@ -84,6 +86,7 @@ class Home extends Component{
                             <Route path="/params" component={Params} />
                             <Route path="/form" component={TestForm} />
                             <Route path="/keyboard" component={TestKeyboard} />
+                            <Route path="/test-object" component={TestObject} />
                         </Fragment>
                     </BrowserRouter>
                 {/* </Online> */}

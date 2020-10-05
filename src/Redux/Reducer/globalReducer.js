@@ -1,12 +1,14 @@
-import ActionType from "./globalActionType";
+import initialState from "./initialState";
+import { ActionType } from "../Action/actions";
 
-const globalState = {
-    totalOrder: 0,
-    testState: 'jhjas'
-}
+// const globalState = {
+//     totalOrder: 0,
+//     testState: 'jhjas',
+//     ektp: {}
+// }
 
 /* REDUCER */
-const rootReducer = (state = globalState, action) => {
+const globalReducer = (state = initialState, action) => {
     switch (action.type) {
         case ActionType.PLUS_ORDER:
             return {
@@ -22,9 +24,26 @@ const rootReducer = (state = globalState, action) => {
                 ...state,
                 totalOrder: totOrder
             }
+        // case ActionType.SET_DATA_KTP:
+        //     return { 
+        //         ...state, 
+        //         ektp: action.data_ektp
+        //     }
+        // case ActionType.UPDATE_DATA_KTP:
+        //     const newDataEktp = {...state.ektp}
+        //     newDataEktp[action.key] = action.value
+        //     return {
+        //         ...state,
+        //         ektp: newDataEktp
+        //     }
+        case ActionType.TEST_ACTION:
+            return {
+                ...state,
+                testState: action.data
+            }
         default:
             return state
     }
 }
 
-export default rootReducer
+export default globalReducer

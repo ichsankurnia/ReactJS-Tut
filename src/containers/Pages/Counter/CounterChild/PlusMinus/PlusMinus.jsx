@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import ActionType from "../../../../../Redux/Reducer/globalActionType";
+import { ActionType } from "../../../../../Redux/Action/actions";
 
 export class PlusMinus extends React.Component{
     state = {
@@ -38,42 +38,17 @@ export class PlusMinus extends React.Component{
 }
 
 
-class PlusMinusRedux extends React.Component{
+const PlusMinusRedux = (props) => {
+    console.log(props)
     
-    //#region STATE LAMA
-    // state = {
-    //     count : 0
-    // }
-
-    // sendCounter = (newValue) => {
-    //     this.props.onCounterChange(newValue)
-    // }
-
-    // handlePlus = () => {
-    //     this.setState({count: this.state.count + 1}, () => {
-    //         this.sendCounter(this.state.count)
-    //     })
-    // }
-
-    // handleMinus = () => {
-    //     if(this.state > 0){
-    //         this.setState({count: this.state.count - 1}, () => {
-    //             this.sendCounter(this.state.count)
-    //         })
-    //     }
-    // }
-    //#endregion
-
-    render(){
-        console.log(this.props)
-        return (
-            <div className="footer">
-                <button onClick={this.props.handleMinus}>-</button>
-                <input type="text" value={this.props.order} readOnly/>
-                <button onClick={this.props.handlePlus}>+</button>
-            </div>
-        )
-    }
+    return (
+        <div className="footer">
+            <button onClick={props.handleMinus}>-</button>
+            <input type="text" value={props.order} readOnly/>
+            <button onClick={props.handlePlus}>+</button>
+        </div>
+    )
+    
 }
 
 const mapStateToProps = (state) => {

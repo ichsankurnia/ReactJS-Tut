@@ -1,7 +1,7 @@
 import React, {Component, Fragment} from 'react';
+import { connect } from 'react-redux';
 import "./index.css";
 import CounterChildRedux, { CounterChild } from './CounterChild';
-import { connect } from 'react-redux';
 
 class Counter extends Component{
     state = {

@@ -1,8 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { setKTPData, updateKTPData, testUpdateState } from "../../../Redux/action/actions";
-import ActionType from "../../../Redux/action/actionType";
+import { setKTPData, updateKTPData, testUpdateState } from "../../../Redux/Action/actions";
 
 const item = {
     nama: "Ichsan Kurniawan",

@@ -42,7 +42,7 @@ class Counter extends Component{
 
 const mapStateToProps = (state) => {
     return {
-        order: state.totalOrder
+        order: state.global.totalOrder
     }
 }
 

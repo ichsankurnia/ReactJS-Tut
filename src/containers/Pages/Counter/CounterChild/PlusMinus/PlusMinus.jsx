@@ -53,7 +53,7 @@ const PlusMinusRedux = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        order: state.totalOrder
+        order: state.global.totalOrder
     }
 }
 

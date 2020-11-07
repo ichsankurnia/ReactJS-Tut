@@ -23,7 +23,7 @@ class LifeCycleComp extends Component{
         this._isMounted = true; 
         console.log('componentDidMount');
         if (this._isMounted){
-            setTimeout(() => {
+            this.timeout = setTimeout(() => {
                 this.setState({
                     count: 2
                 })
@@ -64,6 +64,7 @@ class LifeCycleComp extends Component{
         if(this._isMounted){
             this._isMounted = false;
         }
+        clearTimeout(this.timeout)
     }
 
     plusCount = () =>{

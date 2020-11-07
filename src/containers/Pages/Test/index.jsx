@@ -36,7 +36,7 @@ class Test extends Component{
 
 const mapStateToProps = (state) => {
     return {
-        totalCount : state.totalOrder
+        totalCount : state.global.totalOrder
     }
 }
 

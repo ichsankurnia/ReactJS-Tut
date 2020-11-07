@@ -9,6 +9,7 @@ import { ActionType } from "../Action/actions";
 
 /* REDUCER */
 const globalReducer = (state = initialState, action) => {
+    console.log("ACTION :", action.type)
     switch (action.type) {
         case ActionType.PLUS_ORDER:
             return {

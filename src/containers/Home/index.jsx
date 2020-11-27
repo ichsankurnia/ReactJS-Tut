@@ -20,6 +20,7 @@ import TestKeyboard from '../Pages/Keyboard/Keyboard';
 
 import "./index.css";
 import TestObject from '../Pages/Test/TestObject';
+import TestPDF from '../Pages/Test/TestPDF';
 
 class Home extends Component{
     state = {
@@ -69,6 +70,7 @@ class Home extends Component{
                                 <Link to="/form">Form</Link>
                                 <Link to="/keyboard">Keyboard</Link>
                                 <Link to="/test-object">TestObject</Link>
+                                <Link to="/jspdf">TestPDF</Link>
                             </div>
                             <hr style={{backgroundColor:'black', height:'2px'}} />
 
@@ -87,6 +89,7 @@ class Home extends Component{
                             <Route path="/form" component={TestForm} />
                             <Route path="/keyboard" component={TestKeyboard} />
                             <Route path="/test-object" component={TestObject} />
+                            <Route path="/jspdf" component={TestPDF} />
                         </Fragment>
                     </BrowserRouter>
                 {/* </Online> */}

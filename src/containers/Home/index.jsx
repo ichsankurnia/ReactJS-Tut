@@ -20,7 +20,8 @@ import TestKeyboard from '../Pages/Keyboard/Keyboard';
 
 import "./index.css";
 import TestObject from '../Pages/Test/TestObject';
-import TestPDF from '../Pages/Test/TestPDF';
+import TestPDF from '../Pages/PDF/TestPDF';
+import TestWebcam from '../Pages/TestWebcam';
 
 class Home extends Component{
     state = {
@@ -43,7 +44,7 @@ class Home extends Component{
                 {/* </Offline> */}
                 {/* <Online> */}
                     {/* <BrowserRouter basename="/reacttut"> */}
-                    {/* <BrowserRouter> */}
+                    {/* <HashRouter> */}
                     <BrowserRouter basename="/ReactApp/exercise/">
                         <Fragment>
                             {/* <p>Counter</p>
@@ -71,6 +72,7 @@ class Home extends Component{
                                 <Link to="/keyboard">Keyboard</Link>
                                 <Link to="/test-object">TestObject</Link>
                                 <Link to="/jspdf">TestPDF</Link>
+                                <Link to="/webcam">Webcam</Link>
                             </div>
                             <hr style={{backgroundColor:'black', height:'2px'}} />
 
@@ -90,8 +92,10 @@ class Home extends Component{
                             <Route path="/keyboard" component={TestKeyboard} />
                             <Route path="/test-object" component={TestObject} />
                             <Route path="/jspdf" component={TestPDF} />
+                            <Route path="/webcam" component={TestWebcam} />
                         </Fragment>
                     </BrowserRouter>
+                    {/* </HashRouter> */}
                 {/* </Online> */}
             </Fragment>
         )

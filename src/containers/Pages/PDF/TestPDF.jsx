@@ -31,7 +31,7 @@ export const toDataURL = (url) => fetch(url)
 
 
 function TestPDF(){
-    const [option, setOption] = useState(0)
+    const [option, setOption] = useState(2)
 
     const createPDF = async () => {
         var doc = new jsPDF({orientation: 'p', format: 'a4', unit: "pt"})

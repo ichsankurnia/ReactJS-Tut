@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import {BrowserRouter, Route, Link} from "react-router-dom";
+import {BrowserRouter, HashRouter, Route, Link} from "react-router-dom";
 // import { Offline, Online } from "react-detect-offline";
 
 import BlogPost from '../Pages/BlogPost';
@@ -22,6 +22,8 @@ import "./index.css";
 import TestObject from '../Pages/Test/TestObject';
 import TestPDF from '../Pages/PDF/TestPDF';
 import TestWebcam from '../Pages/TestWebcam';
+import TestViewImageRailink from '../Pages/Test/TestViewImageRailink';
+import TestBufferImage from '../Pages/Test/TestBufferImage';
 
 class Home extends Component{
     state = {
@@ -44,8 +46,8 @@ class Home extends Component{
                 {/* </Offline> */}
                 {/* <Online> */}
                     {/* <BrowserRouter basename="/reacttut"> */}
-                    {/* <HashRouter> */}
-                    <BrowserRouter basename="/ReactApp/exercise/">
+                    <HashRouter>
+                    {/* <BrowserRouter basename="/ReactApp/exercise/"> */}
                         <Fragment>
                             {/* <p>Counter</p>
                             <hr style={{backgroundColor:'black', height:'2px'}} />
@@ -73,6 +75,8 @@ class Home extends Component{
                                 <Link to="/test-object">TestObject</Link>
                                 <Link to="/jspdf">TestPDF</Link>
                                 <Link to="/webcam">Webcam</Link>
+                                <Link to="/test-view-image-railink">Image Railink</Link>
+                                <Link to="/test-buff-img">Buffer Image</Link>
                             </div>
                             <hr style={{backgroundColor:'black', height:'2px'}} />
 
@@ -93,9 +97,11 @@ class Home extends Component{
                             <Route path="/test-object" component={TestObject} />
                             <Route path="/jspdf" component={TestPDF} />
                             <Route path="/webcam" component={TestWebcam} />
+                            <Route path="/test-view-image-railink" component={TestViewImageRailink} />
+                            <Route path="/test-buff-img" component={TestBufferImage} />
                         </Fragment>
-                    </BrowserRouter>
-                    {/* </HashRouter> */}
+                    {/* </BrowserRouter> */}
+                    </HashRouter>
                 {/* </Online> */}
             </Fragment>
         )

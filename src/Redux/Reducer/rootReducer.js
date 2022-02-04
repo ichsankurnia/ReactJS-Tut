@@ -8,3 +8,6 @@ const rootReducer = combineReducers({
 })
 
 export default rootReducer
+
+
+// action => reducer => update store

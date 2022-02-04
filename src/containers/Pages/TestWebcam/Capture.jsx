@@ -1,6 +1,54 @@
 import React from 'react'
 import Webcam from 'react-webcam';
 
+export class Capture extends React.Component {
+	constructor(props){
+		super(props)
+		this.state = {
+			imgSrc: null,
+			showSS: false,
+			hidden: true
+		}
+		this.webcamRef = React.createRef()
+	}
+
+	screenshot = () => {
+		setTimeout(() => {
+			this.setState({hidden: false}, () => {
+				const imgSS = this.webcamRef.current.getScreenshot()																			// akses function pada component webcam
+				console.log(imgSS)
+				this.setState({imgSrc: imgSS, showSS: true, hidden: true})
+			})
+		}, 2000);
+	}
+
+	render(){
+		const videoConstraints = {
+			width: 1280,
+			height: 720,
+			facingMode: "user",
+			deviceId: this.props.deviceId
+		};
+
+		return(
+			<>
+			<Webcam audio={false}
+			ref={this.webcamRef}
+			width={480}
+			screenshotFormat="image/jpeg"
+			screenshotQuality={1}
+			videoConstraints={videoConstraints}
+			hidden={this.state.hidden}
+			/>
+			<button onClick={this.screenshot}>Capture</button>
+			{
+				this.state.imgSrc && <img src={this.state.imgSrc} alt="test screenshot" />
+			}
+			</>
+		)
+	}
+}
+
 const WebcamCapture = ({deviceId}) => {
     const webcamRef = React.useRef(null);
     const [imgSrc, setImgSrc] = React.useState(null);
